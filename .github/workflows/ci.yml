@@ -23,7 +23,7 @@ jobs:
 
       # Step 5: Upload coverage to Coveralls
       - name: Coveralls
-        uses: coverallsapp/github-action@v4
+        uses: coverallsapp/github-action@v2
 
       - name: Upload coverage to Coveralls
         env:
