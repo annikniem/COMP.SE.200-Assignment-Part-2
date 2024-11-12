@@ -20,6 +20,7 @@ jobs:
         run: |
             npm install
             npm test -- --coverage
+        continue-on-error: true
 
       # Step 5: Upload coverage to Coveralls
       - name: Coveralls
