@@ -22,8 +22,20 @@ jobs:
             npm test -- --coverage
         continue-on-error: true
 
+      # Step4: Check if coverage file exists and conditionally upload to Coveralls
+      - name: Check for coverage file
+        id: check_coverage
+        run: |
+          if [ -f coverage/lcov-info ]; then
+            echo "Coverage file found, proceeding with upload."
+          else
+            echo "No coverage file found, skipping Coveralls upload."
+            exit 0  # Exit gracefully if no coverage file is found
+          fi
+
       # Step 5: Upload coverage to Coveralls
       - name: Coveralls
+        if: steps.check_coverage.outcome == 'success'
         uses: coverallsapp/github-action@v2
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
