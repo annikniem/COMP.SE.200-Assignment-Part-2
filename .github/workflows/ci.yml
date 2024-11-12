@@ -1,5 +1,10 @@
-# Trigger the workflow on push or pull request
-on: ["push", "pull_request"]
+name: CI Pipeline
+on: 
+  push:
+    paths:
+      - 'src/**'
+    paths-ignore:
+      - '/.internal/**'
 
 jobs:
   build:
