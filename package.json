@@ -5,24 +5,26 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nyc --all mocha src/test/*.js",
-    "coverage": "nyc mocha src/test/*.js"
-  },
-  "nyc": {
-    "all": true,
-    "include": ["src/*.js"],
-    "reporter": ["text", "html"],
-    "report-dir": "./coverage",
-    "exclude": ["src/test/*.js", "./src/.internal/*.js"]
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "chai": "^5.1.2",
-    "mocha": "^10.8.2"
-  },
   "devDependencies": {
-    "coveralls": "^3.1.1",
-    "nyc": "^17.1.0"
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text",
+      "lcov"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/.internal"
+    ],
+    "coverageDirectory": "coverage",
+    "verbose": true
   }
 }
