@@ -4,9 +4,10 @@ uses: coverallsapp/github-action@v2.3.4
 on: 
   push:
     paths:
-      - 'src/**'
+      - '../../src/*.js'
     paths-ignore:
-      - '/.internal/**'
+      - '../../src/.internal/*.js'
+      - '../../src/test/*.js'
 
 jobs:
   build:
@@ -26,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
             npm install
-            npm test
+            npm run coverage
         continue-on-error: true
 
       # Upload coverage
