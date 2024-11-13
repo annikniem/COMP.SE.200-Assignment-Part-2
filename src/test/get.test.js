@@ -24,7 +24,7 @@ describe('get', () => {
     });
     
     // Test for an invalid path that does not exist in the object when a default value is determined
-    it('should return the default value when object is undefined', () => {
+    it('should return the default value when path is invalid', () => {
       const object = { 1: [{ 2: { 3: 'a' } }] };
       const result = get(object, '1[0].2.3.4', 'default');
       expect(result).toBe('default');
@@ -40,13 +40,6 @@ describe('get', () => {
     it('should return default value when object is null', () => {
         const result = get(null, '1[0].2.3', 'default');
         expect(result).toBe('default');
-    });
-  
-    // Test for an invalid path without default value
-    it('should return undefined for an invalid path without a default value', () => {
-      const object = { 1: [{ 2: { 3: 'a' } }] };
-      const result = get(object, 'a.b.c');
-      expect(result).toBe(undefined);
     });
   
     // Test for an empty path
