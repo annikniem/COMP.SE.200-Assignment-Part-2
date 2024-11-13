@@ -5,12 +5,24 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha src/test/*.js"
+    "test": "nyc --all mocha src/test/*.js",
+    "coverage": "nyc mocha src/test/*.js"
+  },
+  "nyc": {
+    "all": true,
+    "include": ["src/*.js"],
+    "reporter": ["text", "html"],
+    "report-dir": "./coverage",
+    "exclude": ["src/test/*.js", "./src/.internal/*.js"]
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "chai": "^5.1.2",
     "mocha": "^10.8.2"
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.1",
+    "nyc": "^17.1.0"
   }
 }
