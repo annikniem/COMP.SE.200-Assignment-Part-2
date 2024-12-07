@@ -62,4 +62,24 @@ describe('isObject', () => {
         expect(isObject(Object(undefined))).toBe(true);
     });
 
+    // Checking if symbol, empty symbol is an object
+    it('should return false when checking an empty symbol', () => {
+        expect(isObject(Symbol())).toBe(false);
+    });
+
+    // Checking if symbol, type symbol with value 1 is an object
+    it('should return false when checking a symbol with value 1', () => {
+        expect(isObject(Symbol(1))).toBe(false);
+    });
+
+    // Checking if object, array() is an object
+    it('should return true when checking an empty array', () => {
+        expect(isObject([])).toBe(true);
+    });
+
+    // Checking if object, Array(3) = [undefined, undefined, undefined] is an object
+    it('should return true when checking Array(3)', () => {
+        expect(isObject(Array(3))).toBe(true);
+    });
+
 });
