@@ -8,46 +8,58 @@ describe('add', () => {
         expect(result).toBe(10);
     });
 
-    // Adding a positive and a negative number
-    it('should add a positive and a negative number correctly', () => {
-        const result = add(6, -4);
+    // Adding number, 1 and number, 1
+    it('should add 1 and 1 correctly', () => {
+        const result = add(1, 1);
         expect(result).toBe(2);
     });
 
-    // Adding two negative numbers
-    it('should add two negative numbers correctly', () => {
-        const result = add(-6, -4);
-        expect(result).toBe(-10);
+    // Adding number, 1.1 and number, 1.1
+    it('should add 1.1 and 1.1 correctly', () => {
+        const result = add(1.1, 1.1);
+        expect(result).toBe(2.2);
     });
 
-    // Adding zero to a positive number
-    it('should return the same number when adding zero', () => {
-        const result = add(6, 0);
-        expect(result).toBe(6);
+    // Adding number, -1.1 and number, 1.1
+    it('should add -1.1 and 1.1 correctly', () => {
+        const result = add(-1.1, 1.1);
+        expect(result).toBe(0);
     });
 
-    // Adding zero to a negative number
-    it('should return the same negative number when adding zero', () => {
-        const result = add(-6, 0);
-        expect(result).toBe(-6);
+    // Adding number, -1.1 and number, -1.1
+    it('should add -1.1 and -1.1 correctly', () => {
+        const result = add(-1.1, -1.1);
+        expect(result).toBe(-2.2);
     });
 
-    // Adding zero as the first number to a positive number
-    it('should return the same positive number when zero is the first number', () => {
-        const result = add(0, 4);
-        expect(result).toBe(4);
+    // Adding object, null and number, NaN
+    it('should return NaN when adding null and NaN', () => {
+        const result = add(null, NaN);
+        expect(result).toBeNaN();
     });
 
-    // Adding zero as the first number to a negative number
-    it('should return the same negative number when zero is the first number', () => {
-        const result = add(0, 4);
-        expect(result).toBe(4);
+    // Adding undefined, undefined and number, NaN
+    it('should return NaN when adding undefined and NaN', () => {
+        const result = add(undefined, NaN);
+        expect(result).toBeNaN();
     });
-    
-    // Adding floating point numbers
-    it('should add floating point numbers correctly', () => {
-        const result = add(1.5, 2.3);
-        expect(result).toBeCloseTo(3.8);
+
+    // Adding object, array and number, NaN
+    it('should return NaN when adding array and NaN', () => {
+        const result = add([], NaN);
+        expect(result).toBeNaN();
+    });
+
+    // Adding number, +Infinity and number, -Infinity
+    it('should return NaN when adding +Infinity and -Infinity', () => {
+        const result = add(+Infinity, -Infinity);
+        expect(result).toBeNaN();
+    });
+
+    // Adding number, 1 and number, -Infinity
+    it('should return -Infinity when adding 1 and -Infinity', () => {
+        const result = add(1, -Infinity);
+        expect(result).toBe(-Infinity);
     });
 
 });
