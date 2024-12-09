@@ -32,6 +32,18 @@ describe('add', () => {
         expect(result).toBeNaN();
     });
 
+    // Adding undefined and 1
+    it('should return NaN when adding undefined and 1', () => {
+        const result = add(undefined, 1);
+        expect(result).toBeNaN();
+    });
+
+    // Adding 1 and null
+    it('should return NaN when adding 1 and null', () => {
+        const result = add(1, null);
+        expect(result).toBeNaN();
+    });
+
     // Adding undefined and NaN
     it('should return NaN when adding undefined and NaN', () => {
         const result = add(undefined, NaN);
@@ -56,4 +68,10 @@ describe('add', () => {
         expect(result).toBe(-Infinity);
     });
 
+    // Adding +Infinity and undefined
+    it('should return NaN when adding +Infinity and undefined', () => {
+        const result = add(+Infinity, undefined);
+        expect(result).toBeNaN();
+    });
+    
 });
