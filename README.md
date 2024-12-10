@@ -12,5 +12,4 @@ Source code folder contains a separate license file that must **NOT** be removed
 Removing this license file directly violates terms and conditions of the software under testing.
 Individuals who remove or modify the license file will also carry the consequences.
 
-<a href='https://coveralls.io/github/annikniem/COMP.SE.200-Assignment-Part-2?branch=main'><img src='https://coveralls.io/repos/github/annikniem/COMP.SE.200-Assignment-Part-2/badge.svg?branch=main' alt='Coverage Status' /></a>
-
+![Coverage](https://coveralls.io/repos/github/username/repository/badge.svg?branch=main&nocache=202412101200)
